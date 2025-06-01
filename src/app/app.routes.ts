@@ -10,6 +10,8 @@ import { ListaClienteComponent } from './Paginas/admin/lista-cliente/lista-clien
 import { PedidoClienteComponent } from './Paginas/cliente/pedido-cliente/pedido-cliente.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
+import { ForgotPasswordComponent } from './auth/components/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
@@ -23,5 +25,7 @@ export const routes: Routes = [
   { path: 'pedido-cliente', component: PedidoClienteComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
 ];
 
