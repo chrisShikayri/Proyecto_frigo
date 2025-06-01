@@ -1,0 +1,83 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f1f1f1;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: lightgray;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  nav button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #ddd;
+    cursor: pointer;
+
+    &.active {
+      background-color: #bbb;
+    }
+  }
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  table {
+    width: 100%;
+    border-spacing: 0 10px;
+
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .acciones button {
+      margin: 0 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  }
+
+  .agregar-btn {
+    margin-top: 1rem;
+    padding: 0.7rem 2rem;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    float: right;
+  }
+}

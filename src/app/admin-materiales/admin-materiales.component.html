@@ -1,0 +1,60 @@
+<div class="dashboard"> 
+  <aside class="sidebar">
+    <div class="logo">LOGO</div>
+
+    <nav>
+      <button>Técnicos</button>
+      <button>Clientes</button>
+      <button>Pedidos</button>
+      <button>Tickets</button>
+
+      <!-- Enlaces con routerLink -->
+      <button [routerLink]="'/admin-materiales'" routerLinkActive="active">Materiales</button>
+      <button [routerLink]="'/admin-reporte'" routerLinkActive="active">Reportes</button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Material</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>DESCRIPCION</th>
+          <th>STOCK</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let material of materiales; let i = index">
+          <td>
+            <input [(ngModel)]="material.id" [disabled]="!material.editable" />
+          </td>
+          <td>
+            <input [(ngModel)]="material.nombre" [disabled]="!material.editable" />
+          </td>
+          <td>
+            <input [(ngModel)]="material.descripcion" [disabled]="!material.editable" />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="material.stock"
+              [disabled]="!material.editable"
+              min="0"
+            />
+          </td>
+          <td class="acciones">
+            <button (click)="editarFila(i)">📝</button>
+            <button (click)="guardarFila(i)">💾</button>
+            <button (click)="eliminarFila(i)">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="agregar-btn" (click)="agregarFila()">AGREGAR</button>
+  </main>
+</div>

@@ -1,0 +1,188 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: lightgray;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  nav button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #ddd;
+    cursor: pointer;
+
+    &.active {
+      background-color: #cce7ff;
+    }
+  }
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .form-box {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .ticket-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      input {
+        flex: 1;
+      }
+    }
+
+    .equipo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+
+      th,
+      td {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.3rem;
+      }
+    }
+
+    .material-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .material-item {
+      display: flex;
+      gap: 0.5rem;
+
+      input {
+        flex: 1;
+      }
+
+      input[type='number'] {
+        width: 60px;
+      }
+    }
+
+    .guardar-btn {
+      margin-top: 1rem;
+      padding: 0.7rem 2rem;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      float: right;
+    }
+  }
+}
+
+.busqueda-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 4px;
+
+  li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+.floating-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+
+  .mensaje {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .icono {
+    font-size: 2.5rem;
+    color: #d100ff;
+    margin-bottom: 1rem;
+  }
+
+  .pdf-btn {
+    background-color: #00cc44;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
