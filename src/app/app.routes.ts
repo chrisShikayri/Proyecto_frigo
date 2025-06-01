@@ -29,5 +29,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  {path:'admin-ListaCliente', component: ListaClienteComponent},
 ];
 
