@@ -13,6 +13,7 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
 import { ForgotPasswordComponent } from './auth/components/forgot-password/forgot-password.component';
 import { AdminPedidoComponent } from './Paginas/admin/admin-pedido/admin-pedido.component';
+import { VerifyCodeComponent } from './auth/components/verify-code/verify-code.component';
 
 export const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-code', component: VerifyCodeComponent},
   {path:'admin-ListaCliente', component: ListaClienteComponent},
 ];
 

@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background: linear-gradient(to bottom right, #f0faff, #ffffff);
+  }
+  
+  .custom-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #007bff;
+  }
+  
+  .title {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 2rem;
+  }
+  
+  .input-field {
+    border-radius: 8px;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background-color: #ff6b00 !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #e65c00 !important;
+  }
+  
+  .center-text {
+    text-align: center;
+  }

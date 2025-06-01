@@ -11,19 +11,19 @@ import { ToastModule } from 'primeng/toast';
   styleUrls: ['./forgot-password.component.scss'],
   standalone: true,
   providers: [MessageService],
-   imports: [
+  imports: [
     CommonModule,
     ReactiveFormsModule,
     ToastModule
-    // otros módulos como InputTextModule, ButtonModule, etc. si los usas
   ]
 })
 export class ForgotPasswordComponent {
   forgotForm: FormGroup;
+  recoveryCode: number | null = null;
 
-  constructor(private fb: FormBuilder, private messageService: MessageService, private router: Router, ) {
+  constructor(private fb: FormBuilder, private messageService: MessageService, private router: Router) {
     this.forgotForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -31,19 +31,18 @@ export class ForgotPasswordComponent {
     if (this.forgotForm.invalid) return;
 
     const email = this.forgotForm.value.email;
-    const recoveryCode = Math.floor(100000 + Math.random() * 900000); // random 6-digit code
+    this.recoveryCode = Math.floor(100000 + Math.random() * 900000); // Código aleatorio de 6 dígitos
 
-    // For now, just show a toast
+    // Muestra un mensaje de éxito
     this.messageService.add({
       severity: 'success',
       summary: 'Código enviado',
-      detail: `Se ha enviado un código de recuperación a ${email} (código: ${recoveryCode})`,
+      detail: `Código de verificación enviado a ${email} (Código: ${this.recoveryCode})`,
     });
 
+    // Simula el envío y redirige a la pantalla de verificación
     setTimeout(() => {
-      this.router.navigate(['/auth/change-password']); // Redirección
+      this.router.navigate(['/auth/verify-code']);
     }, 2500);
-
-    // TODO: Integrate with your backend email service
   }
 }
