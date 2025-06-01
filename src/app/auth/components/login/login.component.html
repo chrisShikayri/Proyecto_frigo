@@ -1,0 +1,115 @@
+<p-toast position="center"></p-toast>
+
+<div class="flex justify-content-center align-items-center min-h-screen min-w-screen bg-[#f8faff] overflow-hidden">
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div
+      class="mt-8 p-2 border-round-3xl"
+      style="background: linear-gradient(180deg, #ff6b00 10%, rgba(0, 94, 255, 0.05) 40%); box-shadow: 0 15px 45px rgba(0, 94, 255, 0.15);"
+    >
+      <div class="w-full py-6 px-6 sm:px-10 border-round-2xl bg-white">
+        <!-- LOGO -->
+        <div class="text-center mb-5 mt-3">
+          <div
+            class="inline-block px-6 py-4 border-round-2xl"
+            style="background: linear-gradient(135deg, #ff6b00 20%, #007bff 80%); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);"
+          >
+            <img
+              src="https://frigoserviciosecuador.com/wp-content/uploads/2025/01/LOGO-FRIGOSERVICIOS2we3-1024x309.png"
+              alt="Frigoservicios Logo"
+              style="max-height: 70px; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));"
+            />
+          </div>
+        </div>
+
+        <!-- Encabezado -->
+        <div class="text-center mb-4">
+          <h2 class="text-3xl font-bold text-[#007bff] mb-2" style="text-shadow: 1px 1px 0px #e3e3e3;">🔐 Bienvenido!!!</h2>
+          <p class="text-orange-500 text-lg font-medium">Inicia sesión en Frigoservicios</p>
+        </div>
+
+        <!-- Formulario -->
+        <form [formGroup]="loginForm" (ngSubmit)="funIngresar()">
+          <!-- Correo -->
+          <div class="mb-3">
+            <label for="email" class="block text-xl font-semibold text-[#007bff]">Correo electrónico</label>
+            <input
+              id="email"
+              type="email"
+              pInputText
+              formControlName="email"
+              placeholder="ejemplo@email.com"
+              class="w-full p-3 border-round-xl mt-2 bg-[#f9f9f9] border-1 border-gray-300"
+            />
+            <small
+              *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)"
+              class="p-error"
+            >
+              El correo debe contener un &#64;
+            </small>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="mb-3">
+            <label for="password" class="block text-xl font-semibold text-[#007bff]">Contraseña</label>
+            <p-password
+              id="password"
+              formControlName="password"
+              [feedback]="false"
+              placeholder="Contraseña"
+              inputStyleClass="w-full p-3"
+              styleClass="mt-2"
+            ></p-password>
+            <small
+              *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.value && !validPassword(loginForm.get('password')?.value || '')"
+              class="p-error"
+            >
+              La contraseña debe tener mínimo 6 caracteres y al menos un carácter especial.
+            </small>
+          </div>
+
+          <!-- Rol -->
+          <div class="mb-4">
+            <label for="rol" class="block text-xl font-semibold text-[#007bff]">Rol</label>
+            <p-dropdown
+              id="rol"
+              formControlName="rol"
+              [options]="roles"
+              optionLabel="label"
+              placeholder="Selecciona un rol"
+              class="w-full mt-2"
+              [style]="{ 'border-radius': '1rem' }"
+            ></p-dropdown>
+            <small *ngIf="loginForm.get('rol')?.touched && !loginForm.get('rol')?.value" class="p-error">
+              Debes seleccionar un rol.
+            </small>
+          </div>
+
+          <!-- ¿Olvidaste tu contraseña? -->
+          <div class="text-right mb-4">
+            <a [routerLink]="['/auth/forgot-password']" class="text-[#007bff] font-medium hover:underline">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+
+          <!-- Botón ingresar -->
+          <button
+            pButton
+            type="submit"
+            label="Ingresar"
+            class="w-full p-3 text-xl font-bold"
+            style="background-color: #ff6b00; border-radius: 0.8rem; color: white;"
+          ></button>
+
+          <!-- Botón registrarse -->
+          <button
+            pButton
+            label="¿No tienes cuenta? Regístrate"
+            [routerLink]="['/auth/register']"
+            class="w-full p-3 text-xl font-bold mt-3"
+            style="background-color: #007bff; border-radius: 0.8rem; color: white;"
+          ></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

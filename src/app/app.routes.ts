@@ -7,18 +7,21 @@ import { ListaMaterialesComponent } from './Paginas/tecnico/lista-materiales/lis
 import { TicketsComponent } from './Paginas/admin/tickets/tickets.component';
 import { ListaTecnicoComponent } from './Paginas/admin/lista-tecnico/lista-tecnico.component';
 import { ListaClienteComponent } from './Paginas/admin/lista-cliente/lista-cliente.component';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 export const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
   { path: 'tecnico', component: ticket_tecnicoComponent },
   { path: 'lista-tecnico', component: ListaTecnicoComponent },
   { path: 'lista-materiales', component: ListaMaterialesComponent },
-  { path: '', redirectTo: 'admin-materiales', pathMatch: 'full' },
   { path: 'admin-materiales', component: AdminMaterialesComponent },
   { path: 'admin-reporte', component: AdminReporteComponent },
   { path: 'tickets', component: TicketsComponent },
-  { path: 'cliente', component: ListaClienteComponent }
-
+  { path: 'cliente', component: ListaClienteComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
 ];
 
