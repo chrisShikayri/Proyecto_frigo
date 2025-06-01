@@ -8,6 +8,7 @@ import { TicketsComponent } from './Paginas/admin/tickets/tickets.component';
 import { ListaTecnicoComponent } from './Paginas/admin/lista-tecnico/lista-tecnico.component';
 import { ListaClienteComponent } from './Paginas/admin/lista-cliente/lista-cliente.component';
 import { PedidoClienteComponent } from './Paginas/cliente/pedido-cliente/pedido-cliente.component';
+import { AdminPedidoComponent } from './Paginas/admin/admin-pedido/admin-pedido.component';
 
 export const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'tickets', component: TicketsComponent },
   { path: 'cliente', component: ListaClienteComponent },
   {path:'pedido-cliente', component: PedidoClienteComponent},
+  {path:'pedido-admin', component: AdminPedidoComponent},
 
 
 ];
