@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
-import { AdminMaterialesComponent } from './Paginas/Admin/admin-materiales/admin-materiales.component';
-import { AdminReporteComponent } from './Paginas/Admin/admin-reporte/admin-reporte.component';
+import { AdminMaterialesComponent } from './Paginas/admin/admin-materiales/admin-materiales.component';
+import { AdminReporteComponent } from './Paginas/admin/admin-reporte/admin-reporte.component';
 import { FormularioComponent } from './Paginas/tecnico/formulario/formulario.component';
 import { ticket_tecnicoComponent } from './Paginas/tecnico/ticket-tecnico/ticket-tecnico.component';
 import { ListaMaterialesComponent } from './Paginas/tecnico/lista-materiales/lista-materiales.component';
-import { TicketsComponent } from './Paginas/Admin/tickets/tickets.component';
+import { TicketsComponent } from './Paginas/admin/tickets/tickets.component';
+import { ListaTecnicoComponent } from './Paginas/admin/lista-tecnico/lista-tecnico.component';
 
 export const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
   { path: 'tecnico', component: ticket_tecnicoComponent },
+  { path: 'lista-tecnico', component: ListaTecnicoComponent },
   { path: 'lista-materiales', component: ListaMaterialesComponent },
   { path: '', redirectTo: 'admin-materiales', pathMatch: 'full' },
   { path: 'admin-materiales', component: AdminMaterialesComponent },
