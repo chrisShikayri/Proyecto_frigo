@@ -1,0 +1,46 @@
+.titulo-tabla {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.tabla-clientes {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    width: 25%; // Distribuye uniformemente
+  }
+
+  input {
+    width: 100%;
+    background-color: #e6eef7;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+
+    &:read-only {
+      background-color: #e6eef7;
+      color: #333;
+    }
+  }
+
+  th {
+    font-weight: bold;
+    background-color: #f3f3f3;
+    border-bottom: 2px solid #ccc;
+  }
+
+  td:last-child {
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  button {
+    margin-right: 0.5rem;
+  }
+}
