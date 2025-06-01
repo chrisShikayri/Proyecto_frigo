@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MaterialService } from '../servicios/material.service';
-import { RouterModule } from '@angular/router'; // <- importante
+import { RouterModule } from '@angular/router';
 
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+
+import { MaterialService } from '../../../servicios/material.service';
 
 interface Material {
   id: string;
@@ -16,7 +20,14 @@ interface Material {
 @Component({
   selector: 'app-admin-materiales',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    ButtonModule
+  ],
   templateUrl: './admin-materiales.component.html',
   styleUrls: ['./admin-materiales.component.scss']
 })
@@ -24,7 +35,6 @@ export class AdminMaterialesComponent {
   materiales: Material[] = [];
 
   constructor(private materialService: MaterialService) {
-    // Cargar materiales iniciales desde el servicio
     const base = this.materialService.obtenerMateriales();
     this.materiales = base.map(m => ({ ...m, editable: false }));
   }
@@ -54,7 +64,6 @@ export class AdminMaterialesComponent {
 
     mat.editable = false;
 
-    // Guardar en el servicio (si aún no existe por ID)
     const yaExiste = this.materialService
       .obtenerMateriales()
       .some(m => m.id === mat.id);
@@ -76,7 +85,3 @@ export class AdminMaterialesComponent {
     this.materiales.splice(index, 1);
   }
 }
-
-
-
-
