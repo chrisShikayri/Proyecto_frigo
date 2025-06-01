@@ -7,6 +7,7 @@ import { ListaMaterialesComponent } from './Paginas/tecnico/lista-materiales/lis
 import { TicketsComponent } from './Paginas/admin/tickets/tickets.component';
 import { ListaTecnicoComponent } from './Paginas/admin/lista-tecnico/lista-tecnico.component';
 import { ListaClienteComponent } from './Paginas/admin/lista-cliente/lista-cliente.component';
+import { PedidoClienteComponent } from './Paginas/cliente/pedido-cliente/pedido-cliente.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 
@@ -19,9 +20,8 @@ export const routes: Routes = [
   { path: 'admin-reporte', component: AdminReporteComponent },
   { path: 'tickets', component: TicketsComponent },
   { path: 'cliente', component: ListaClienteComponent },
+  { path: 'pedido-cliente', component: PedidoClienteComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-
 ];
 
