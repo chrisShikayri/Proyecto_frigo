@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ChangePasswordComponent } from './auth/components/change-password/change-password.component';
 import { ForgotPasswordComponent } from './auth/components/forgot-password/forgot-password.component';
+import { AdminPedidoComponent } from './Paginas/admin/admin-pedido/admin-pedido.component';
 
 export const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'tickets', component: TicketsComponent },
   { path: 'cliente', component: ListaClienteComponent },
   { path: 'pedido-cliente', component: PedidoClienteComponent},
+  {path:'pedido-admin', component: AdminPedidoComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'change-password', component: ChangePasswordComponent },
