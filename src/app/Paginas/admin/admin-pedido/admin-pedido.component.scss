@@ -1,0 +1,77 @@
+.titulo {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 1rem; /* reducido para darle espacio al botón */
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.boton-materiales-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem; /* separación entre botón y tarjetas de pedidos */
+}
+
+.btn-materiales {
+  --button-padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.contenedor-pedidos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card-pedido {
+  cursor: pointer;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .cabecera-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 1rem;
+    border-bottom: 1px solid var(--surface-border);
+    transition: color 0.3s ease;
+
+    i.pi {
+      font-size: 1.25rem;
+      color: var(--text-secondary-color);
+    }
+  }
+
+  .contenido-card {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--surface-ground);
+    animation: expandFade 0.3s ease;
+  }
+}
+
+@keyframes expandFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
