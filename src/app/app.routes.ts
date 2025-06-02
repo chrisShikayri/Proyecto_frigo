@@ -16,6 +16,8 @@ import { AdminPedidoComponent } from '../app/Paginas/admin/admin-pedido/admin-pe
 import { VerifyCodeComponent } from './auth/components/verify-code/verify-code.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+
   { path: 'formulario', component: FormularioComponent },
   { path: 'tecnico', component: ticket_tecnicoComponent },
   { path: 'lista-tecnico', component: ListaTecnicoComponent },
@@ -32,5 +34,7 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-code', component: VerifyCodeComponent},
   {path:'admin-ListaCliente', component: ListaClienteComponent},
+
+  { path: '**', redirectTo: 'login' } //en caso de que la ruta no exista, redirige al login
 ];
 
