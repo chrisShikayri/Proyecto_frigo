@@ -44,28 +44,49 @@
         <!-- Formulario -->
         <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="p-fluid">
 
-          <!-- NOMBRE -->
-<div class="field mb-3">
-  <label for="name" style="color: #007BFF;">Nombre</label>
-  <input
-    id="name"
-    type="text"
-    name="name"
-    pInputText
-    [(ngModel)]="formData.name"
-    required
-    pattern="^[a-zA-ZÀ-ÿ\s]+$"
-    #nameModel="ngModel"
-    style="border-radius: 0.8rem; padding: 0.9rem;"
-  />
-  <div
-    *ngIf="nameModel.invalid && nameModel.touched"
-    style="background: #ffe5e5; border-left: 6px solid #ff4d4d; padding: 1rem; border-radius: 0.7rem; margin-top: 0.5rem; font-size: 0.9rem; color: #b30000; font-weight: 500; box-shadow: 0 4px 12px rgba(255, 0, 0, 0.1);"
-  >
-    ⚠️ El nombre solo puede contener letras. No se aceptan números ni símbolos.
-  </div>
-</div>
+          <!-- CÉDULA -->
+          <div class="field mb-3">
+            <label for="cedula" style="color: #007BFF;">Cédula</label>
+            <input
+              id="cedula"
+              type="text"
+              name="cedula"
+              pInputText
+              [(ngModel)]="formData.cedula"
+              required
+              pattern="^[0-9]{10}$"
+              #cedulaModel="ngModel"
+              style="border-radius: 0.8rem; padding: 0.9rem;"
+            />
+            <div
+              *ngIf="cedulaModel.invalid && cedulaModel.touched"
+              style="background: #ffe5e5; border-left: 6px solid #ff4d4d; padding: 1rem; border-radius: 0.7rem; margin-top: 0.5rem; font-size: 0.9rem; color: #b30000; font-weight: 500; box-shadow: 0 4px 12px rgba(255, 0, 0, 0.1);"
+            >
+              ⚠️ La cédula debe tener exactamente 10 dígitos numéricos.
+            </div>
+          </div>
 
+          <!-- TELÉFONO -->
+          <div class="field mb-3">
+            <label for="telefono" style="color: #007BFF;">Número de Teléfono</label>
+            <input
+              id="telefono"
+              type="tel"
+              name="telefono"
+              pInputText
+              [(ngModel)]="formData.telefono"
+              required
+              pattern="^[0-9]{10}$"
+              #telefonoModel="ngModel"
+              style="border-radius: 0.8rem; padding: 0.9rem;"
+            />
+            <div
+              *ngIf="telefonoModel.invalid && telefonoModel.touched"
+              style="background: #ffe5e5; border-left: 6px solid #ff4d4d; padding: 1rem; border-radius: 0.7rem; margin-top: 0.5rem; font-size: 0.9rem; color: #b30000; font-weight: 500; box-shadow: 0 4px 12px rgba(255, 0, 0, 0.1);"
+            >
+              ⚠️ El número debe tener exactamente 10 dígitos numéricos.
+            </div>
+          </div>
 
           <!-- USUARIO -->
           <div class="field mb-3">
@@ -145,6 +166,3 @@
     </div>
   </div>
 </div>
-
-
-
