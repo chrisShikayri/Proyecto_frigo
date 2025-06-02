@@ -1,46 +1,68 @@
-<h2 class="titulo-tabla">Lista Clientes</h2>
+<div class="clientes-container">
+  <div class="header-section">
+    <h2 class="titulo-seccion">Gestión de Clientes</h2>
+    <button pButton icon="pi pi-plus" label="Nuevo Cliente" class="p-button-raised p-button-primary" (click)="nuevoCliente()"></button>
+  </div>
 
-<table class="tabla-clientes">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Correo</th>
-      <th>Teléfono</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let cliente of clientes; let i = index">
-      <td>
-        <input pInputText [(ngModel)]="cliente.nombre" [readonly]="!cliente.editando" />
-      </td>
-      <td>
-        <input pInputText [(ngModel)]="cliente.correo" [readonly]="!cliente.editando" />
-      </td>
-      <td>
-        <input pInputText [(ngModel)]="cliente.telefono" [readonly]="!cliente.editando" />
-      </td>
-      <td>
-        <button *ngIf="!cliente.editando"
-                pButton
-                icon="pi pi-pencil"
-                class="p-button-rounded p-button-info"
-                (click)="editar(cliente)">
-        </button>
+  <div class="card tabla-container">
+    <p-table [value]="clientes" [paginator]="true" [rows]="10" [responsive]="true" styleClass="p-datatable-striped">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th style="width: 120px">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cliente let-i="rowIndex">
+        <tr>
+          <td>
+            <input pInputText [(ngModel)]="cliente.nombre" [readonly]="!cliente.editando" 
+                   class="input-table" [ngClass]="{'edit-mode': cliente.editando}" />
+          </td>
+          <td>
+            <input pInputText [(ngModel)]="cliente.correo" [readonly]="!cliente.editando" 
+                   class="input-table" [ngClass]="{'edit-mode': cliente.editando}" />
+          </td>
+          <td>
+            <input pInputText [(ngModel)]="cliente.telefono" [readonly]="!cliente.editando" 
+                   class="input-table" [ngClass]="{'edit-mode': cliente.editando}" />
+          </td>
+          <td>
+            <div class="acciones-container">
+              <button *ngIf="!cliente.editando"
+                      pButton
+                      icon="pi pi-pencil"
+                      class="p-button-rounded p-button-text p-button-info"
+                      pTooltip="Editar" tooltipPosition="top"
+                      (click)="editar(cliente)">
+              </button>
 
-        <button *ngIf="cliente.editando"
-                pButton
-                icon="pi pi-check"
-                class="p-button-rounded p-button-success"
-                (click)="guardar(cliente)">
-        </button>
+              <button *ngIf="cliente.editando"
+                      pButton
+                      icon="pi pi-check"
+                      class="p-button-rounded p-button-text p-button-success"
+                      pTooltip="Guardar" tooltipPosition="top"
+                      (click)="guardar(cliente)">
+              </button>
 
-        <button pButton
-                icon="pi pi-trash"
-                class="p-button-rounded p-button-danger"
-                (click)="eliminar(i)">
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+              <button pButton
+                      icon="pi pi-trash"
+                      class="p-button-rounded p-button-text p-button-danger"
+                      pTooltip="Eliminar" tooltipPosition="top"
+                      (click)="eliminar(i)">
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="4" class="empty-message">
+            No se encontraron clientes. ¡Agrega uno nuevo!
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

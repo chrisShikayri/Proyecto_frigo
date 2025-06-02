@@ -1,0 +1,87 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to right, #fef6e4, #e0f7fa); // fondo pastel claro
+
+  .sidebar {
+    width: 240px;
+    background-color: #aed9e0; // celeste pastel
+    padding: 2rem 1rem;
+    border-right: 2px solid #b2dfdb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #004d40;
+      margin-bottom: 2rem;
+    }
+
+    .nav-buttons {
+      width: 100%;
+
+      button {
+        margin-bottom: 1rem;
+        color: #004d40;
+
+        &.active {
+          background-color: #4db6ac !important;
+        }
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #3e4c59;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-box {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid #cfd8dc;
+    }
+
+    .form-section {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      color: #37474f;
+    }
+
+    input,
+    textarea {
+      border-radius: 10px;
+      border: 1px solid #b0bec5;
+      background-color: #f1f8e9; // verde pastel claro
+
+      &:focus {
+        border-color: #a5d6a7;
+        box-shadow: 0 0 0 2px rgba(165, 214, 167, 0.3);
+      }
+    }
+
+    .p-button {
+      border-radius: 10px;
+    }
+
+    .p-button-success {
+      background-color: #81c784 !important; // verde
+      border: none;
+    }
+
+    .p-button-help {
+      background-color: #ffab91 !important; // durazno pastel
+      border: none;
+    }
+  }
+}

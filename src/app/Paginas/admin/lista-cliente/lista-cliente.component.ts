@@ -20,6 +20,9 @@ interface Cliente {
   styleUrls: ['./lista-cliente.component.scss']
 })
 export class ListaClienteComponent {
+nuevoCliente() {
+throw new Error('Method not implemented.');
+}
   // 👉 Columnas dinámicas para PrimeNG
   cols = [
     { field: 'nombre', header: 'Nombre' },
