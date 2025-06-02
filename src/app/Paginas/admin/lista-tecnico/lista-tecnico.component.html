@@ -1,72 +1,77 @@
-<h2 class="mb-3 text-center">Lista Técnicos</h2>
+<div class="tecnicos-container">
+  <h2 class="titulo">Lista de Técnicos</h2>
 
-<p-table [value]="tecnicos" class="p-datatable-sm">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Cédula</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Correo</th>
-      <th>Acciones</th>
-    </tr>
-  </ng-template>
+  <p-table [value]="tecnicos" class="p-datatable-sm tabla-tecnicos">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th class="acciones-col">Acciones</th>
+      </tr>
+    </ng-template>
 
-  <ng-template pTemplate="body" let-tecnico let-i="rowIndex">
-    <tr>
-      <td>
-        <input
-          pInputText
-          [(ngModel)]="tecnico.cedula"
-          [disabled]="!tecnico.editable"
-          class="w-full"
-        />
-      </td>
-      <td>
-        <input
-          pInputText
-          [(ngModel)]="tecnico.nombre"
-          [disabled]="!tecnico.editable"
-          class="w-full"
-        />
-      </td>
-      <td>
-        <input
-          pInputText
-          [(ngModel)]="tecnico.apellido"
-          [disabled]="!tecnico.editable"
-          class="w-full"
-        />
-      </td>
-      <td>
-        <input
-          pInputText
-          [(ngModel)]="tecnico.correo"
-          [disabled]="!tecnico.editable"
-          class="w-full"
-        />
-      </td>
-      <td class="text-center">
-        <button
-          pButton
-          icon="pi pi-trash"
-          class="p-button-rounded p-button-danger p-button-sm mr-2"
-          (click)="eliminar(i)"
-        ></button>
-        <button
-          pButton
-          icon="pi pi-pencil"
-          *ngIf="!tecnico.editable"
-          class="p-button-rounded p-button-info p-button-sm"
-          (click)="editar(i)"
-        ></button>
-        <button
-          pButton
-          icon="pi pi-save"
-          *ngIf="tecnico.editable"
-          class="p-button-rounded p-button-success p-button-sm"
-          (click)="guardar(i)"
-        ></button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+    <ng-template pTemplate="body" let-tecnico let-i="rowIndex">
+      <tr>
+        <td>
+          <input
+            pInputText
+            [(ngModel)]="tecnico.cedula"
+            [disabled]="!tecnico.editable"
+            class="input-celda"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            [(ngModel)]="tecnico.nombre"
+            [disabled]="!tecnico.editable"
+            class="input-celda"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            [(ngModel)]="tecnico.apellido"
+            [disabled]="!tecnico.editable"
+            class="input-celda"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            [(ngModel)]="tecnico.correo"
+            [disabled]="!tecnico.editable"
+            class="input-celda"
+          />
+        </td>
+        <td class="acciones">
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger p-button-sm"
+            (click)="eliminar(i)"
+            title="Eliminar"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-pencil"
+            *ngIf="!tecnico.editable"
+            class="p-button-rounded p-button-info p-button-sm"
+            (click)="editar(i)"
+            title="Editar"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-save"
+            *ngIf="tecnico.editable"
+            class="p-button-rounded p-button-success p-button-sm"
+            (click)="guardar(i)"
+            title="Guardar"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

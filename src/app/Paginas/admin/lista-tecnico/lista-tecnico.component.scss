@@ -1,0 +1,57 @@
+.tecnicos-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec); // fondo pastel combinado
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1100px;
+  margin: 2rem auto;
+
+  .titulo {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #6a1b9a;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .tabla-tecnicos {
+    border-radius: 10px;
+    overflow: hidden;
+
+    ::ng-deep .p-datatable-thead > tr > th {
+      background-color: #f48fb1; // rosa pastel
+      color: white;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    ::ng-deep .p-datatable-tbody > tr > td {
+      padding: 0.75rem;
+      background-color: #fff;
+    }
+  }
+
+  .input-celda {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border 0.2s;
+
+    &:focus {
+      border-color: #ba68c8;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(186, 104, 200, 0.2);
+    }
+  }
+
+  .acciones {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .acciones-col {
+    text-align: center;
+  }
+}
