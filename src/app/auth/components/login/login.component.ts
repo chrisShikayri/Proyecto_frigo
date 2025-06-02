@@ -66,7 +66,7 @@ export class LoginComponent {
   funIngresar() {
     const email = this.loginForm.get('email')?.value ?? '';
     const password = this.loginForm.get('password')?.value ?? '';
-    const rol = this.loginForm.get('rol')?.value;
+    //const rol = this.loginForm.get('rol')?.value;
 
     if (!email.includes('@')) {
       this.messageService.add({ severity: 'warn', summary: 'Correo inválido', detail: 'Debe contener @' });
@@ -82,11 +82,12 @@ export class LoginComponent {
       return;
     }
 
-    if (!rol) {
+    /*if (!rol) {
       this.messageService.add({ severity: 'warn', summary: 'Rol requerido', detail: 'Selecciona un rol válido.' });
       return;
-    }
+    }*/
 
+    // Si pasa todas las validaciones, llama al servicio de login
     this.authService.loginConNest(this.loginForm.value).subscribe({
       next: (res: any) => {
         localStorage.setItem('access_token', res.token);
@@ -97,7 +98,8 @@ export class LoginComponent {
           detail: 'Redirigiendo...',
           life: 2500
         });
-        setTimeout(() => this.router.navigate(['/admin']), 2500);
+        // Al cabo de 2.5s, navega a /admin-materiales
+        setTimeout(() => this.router.navigate(['/admin-materiales']), 2500);
       },
       error: (err) => {
         if (err?.error?.message === 'Debes registrarte para poder ingresar') {

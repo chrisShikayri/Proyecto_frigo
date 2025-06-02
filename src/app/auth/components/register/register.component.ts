@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // PrimeNG
 import { MessageService } from 'primeng/api';
@@ -10,6 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,18 +21,20 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastModule,
     InputTextModule,
     PasswordModule,
-    ButtonModule
+    ButtonModule,
+    RouterModule
   ]
 })
 export class RegisterComponent {
   formData = {
     cedula: '',
     telefono: '',
-    username: '',
-    email: '',
+    nombre: '',
+    correo: '',
     password: ''
   };
 
@@ -42,7 +45,7 @@ export class RegisterComponent {
   ) {}
 
   onSubmit() {
-    const { cedula, telefono, email, password } = this.formData;
+    const { cedula, telefono, correo, password } = this.formData;
 
     // Validar cédula
     if (!/^\d{10}$/.test(cedula) || !this.validarCedulaEcuatoriana(cedula)) {
@@ -89,7 +92,7 @@ export class RegisterComponent {
         });
 
         setTimeout(() => {
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['/login']);
         }, 3000);
       },
       error: (err) => {
